@@ -12,6 +12,7 @@ export class RouteService {
   ) {}
 
   async optimizeRoute(origin: string, destinations: string[]) {
+    console.log('optimizeRoute')
     const trafficData = await this.trafficService.getTrafficData(origin, destinations);
     const optimized = this.aiService.optimizeByTraffic(origin, destinations, trafficData);
     const apiKey = this.configService.get<string>('GOOGLE_MAPS_API_KEY');
